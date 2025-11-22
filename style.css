@@ -33,6 +33,7 @@
   /* Border radius */
   --border-radius-sm: 8px;
 }
+
 html {
   font-size: var(--fs-base);
 }
@@ -40,7 +41,7 @@ html {
 /************************* 
   Layout
 **************************/
-.container {
+.page-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -52,8 +53,6 @@ html {
     url(../images/bg-pattern-bottom-mobile.svg);
   background-repeat: no-repeat, no-repeat;
   background-position: right top, left bottom;
-
-  font-family: var(--ff-body);
 }
 .content {
   display: flex;
@@ -100,19 +99,24 @@ html {
 /************************* 
   Typography
 **************************/
+.content {
+  font-family: var(--ff-body);
+}
 .intro .content {
+  align-items: center;
   text-align: center;
   color: var(--very-dark-magenta);
 }
 .intro-title {
   font-size: var(--fs-lg);
   font-weight: var(--fw-bold);
+  max-inline-size: 13ch;
 }
 .intro-description {
   font-size: var(--fs-md);
   line-height: 1.5;
+  max-inline-size: 45ch;
 }
-
 .rate-description {
   font-weight: var(--fw-bold);
 }
@@ -130,14 +134,14 @@ html {
 .card-testimonial {
   line-height: 1.7;
 }
+/************************* 
+  Images
+**************************/
 .profile-pic {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
 }
-/************************* 
-  Rate stars
-**************************/
 .star-icons {
   width: 150px;
   height: 24px;
@@ -155,9 +159,47 @@ html {
   Media Queries
 **************************/
 @media (min-width: 48rem) {
-  .container {
+  .page-container {
     background-image: url(./images/bg-pattern-top-desktop.svg),
       url(./images/bg-pattern-bottom-desktop.svg);
     background-position: left top, right bottom;
+  }
+  .container {
+    max-width: 1100px;
+    margin: auto;
+  }
+  .cards-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (min-width: 64rem) {
+  .intro .content {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .intro-rates-wrapper-md {
+    display: flex;
+    justify-content: center;
+  }
+  .rate-container {
+    width: min(30rem, 90vw);
+    flex-direction: row;
+    align-items: center;
+  }
+  .rate-container:first-child {
+    margin-inline-end: 8rem;
+  }
+  .rate-container:last-child {
+    margin-inline-start: 8rem;
+  }
+}
+@media (min-width: 75rem) {
+  .card:nth-child(2) {
+    margin-block-start: 2rem;
+  }
+  .card:last-child {
+    margin-block-start: 4rem;
   }
 }
