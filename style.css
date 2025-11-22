@@ -35,6 +35,7 @@
 }
 
 html {
+  font-family: var(--ff-body);
   font-size: var(--fs-base);
 }
 
@@ -99,9 +100,6 @@ html {
 /************************* 
   Typography
 **************************/
-.content {
-  font-family: var(--ff-body);
-}
 .intro .content {
   align-items: center;
   text-align: center;
